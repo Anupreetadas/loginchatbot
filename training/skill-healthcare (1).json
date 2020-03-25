@@ -1,0 +1,316 @@
+{
+  "intents": [
+    {
+      "intent": "cough_cold",
+      "examples": [
+        {
+          "text": "I am having sneezing and running nose from past few days .what should I do?"
+        },
+        {
+          "text": "I am having dry cough followed by common cold. What should I do?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "indigestion",
+      "examples": [
+        {
+          "text": "I am suffering from stomach ache,vomiting and nausea.What should I do"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "diabetes",
+      "examples": [
+        {
+          "text": "I am suffering from increased thirst,frequent urination,extreme hunger and fatigue.What disease I may have and what should I do?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "welcome",
+      "examples": [
+        {
+          "text": "hello I want you to suggest me some home remedies"
+        },
+        {
+          "text": "Yes,I want you to suggest me some instant remedies."
+        },
+        {
+          "text": "I want you to book an appointment in the nearest hospital."
+        },
+        {
+          "text": "yes i want you to suggest me some instant remedies"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "appointment",
+      "examples": [
+        {
+          "text": "I want to book an appointment to consult the doctor in the nearest hospital."
+        },
+        {
+          "text": "can you book an appointment for me in the nearest hospital"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "chestpain",
+      "examples": [
+        {
+          "text": "I am experiencing mild chestpain from some time.What should be my immediate response to handle this?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "headache",
+      "examples": [
+        {
+          "text": "I am experiencing mild headache. What medicines I need to take to reduce its effect?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "symptoms",
+      "examples": [
+        {
+          "text": "I am suffering from symptoms like cough and cold"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "headache",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "For acute headaches you can take  aspirin or Ibuprofen. In a long run you can  practice meditation. If chronic headaches occur you can refer a doctor."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#headache",
+      "dialog_node": "node_5_1584725917445",
+      "previous_sibling": "node_9_1584725915151"
+    },
+    {
+      "type": "standard",
+      "title": "chestpain",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I would suggest you to immediately visit a doctor. Still  taking Nitroglycerin under the tongue can reduce the pain. Home remedies include taking almonds or garlic."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#chestpain",
+      "dialog_node": "node_5_1584725921620",
+      "previous_sibling": "node_9_1584725920278"
+    },
+    {
+      "type": "standard",
+      "title": "symptoms",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Okay so what kind of symptoms are you facing?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#symptoms",
+      "dialog_node": "node_8_1584772787420",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "appointment",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Your appointment is booked for tomorrow  in the nearest   Sanjeevani hospital and your token number is  231."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#appointment",
+      "dialog_node": "node_3_1584725922235",
+      "previous_sibling": "node_1_1584725922102"
+    },
+    {
+      "type": "standard",
+      "title": "indigestion",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "For indigestion you can take Gelusil, Rabeprazole or Pudinhara.  As home remedies you can take baking soda with water or try eating Carom seeds for long term."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#indigestion",
+      "dialog_node": "node_9_1584725920278",
+      "previous_sibling": "node_5_1584725917445"
+    },
+    {
+      "type": "standard",
+      "title": "diabetes",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You  can take Voglibose  as per the required doses and consult a doctor for long term. As home remedies  you can control your carbs intake or drink bittergourd juice.\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#diabetes",
+      "dialog_node": "node_1_1584725922102",
+      "previous_sibling": "node_5_1584725921620"
+    },
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_3_1584725922235",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "cough _cold",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You can take cough suppressants  like Dextromthorphan for a short time relief.  The home remedies are  taking of tulsi leaves mixed with honey or eating  ginger or cloves. For common cold you should take Sinarest."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#cough_cold",
+      "dialog_node": "node_9_1584725915151",
+      "previous_sibling": "node_8_1584772787420"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you with healthcare,Do you want me to suggest you some home remedies or book an appointment for you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "healthcare",
+  "language": "en",
+  "description": ""
+}
